@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Task</title>
+</head>
+<body>
+    <h1>This is JavaScript!</h1>
+    <h2>This text will be replaced with something else if you click that button...</h2>
+    <h3>And This Text Is A Placeholder For The All Caps Text!</h3>
+
+    <button>Click me!</button>
+
+    <h4>Placeholder for the replace() method</h4>
+    <br>
+    <p id="id1"></p>
+    <p id="id2"></p>
+    <p id="id3"></p>
+    <p id="id4"></p>
+    <p id="id5"></p>
+    <br>
+    <p id="arrayId1"></p>
+    <p id="arrayId2"></p>
+    <p id="arrayId3"></p>
+    <p id="arrayId4"></p>
+    <br>
+    <p id="arrayId5"></p>
+    <p id="arrayId6"></p>
+    <p id="arrayId7"></p>
+    <br>
+    <p id="dateId1"></p>
+    <p id="dateId2"></p>
+    <p id="dateId3"></p>
+    <p id="dateId4"></p>
+    <p id="dateId5"></p>
+    <p id="dateId6"></p>
+    
+    <script>
+        const heading1 = document.querySelector("h1");
+        const heading2 = document.querySelector("h2");
+        const heading3 = document.querySelector("h3");
+        const heading4 = document.querySelector("h4");
+
+        let textSlice = "This is JavaScript!";
+        textSlice = textSlice.slice(8, 18) // String 4
+        heading1.textContent = textSlice;
+
+        let textLower = "And This Text Will Include Something In All Caps!"
+        textLower = textLower.toLowerCase(); // String 1
+        heading3.textContent = textLower;
+
+        let textReplace = "This is a number?";
+        textReplace = textReplace.replace("number?", "string!") //String 5
+        heading4.textContent = textReplace;
+
+        document.getElementById("id1").innerHTML = (478).toString(); //Number 1
+        document.getElementById("id2").innerHTML = (478).toExponential(4); //Number 2
+        document.getElementById("id3").innerHTML = (478).toFixed(7); //Number 3
+        document.getElementById("id4").innerHTML = (478).toPrecision(8); //Number 4
+        document.getElementById("id5").innerHTML = (478).valueOf(); //Number 5
+
+        let strArray = ["Apple", "Banana", "Mango", "Orange"];
+        document.getElementById("arrayId1").innerHTML = strArray;
+
+        let strArrayLength = strArray.length; // Array 1
+        document.getElementById("arrayId2").innerHTML = strArrayLength;        
+        document.getElementById("arrayId3").innerHTML = strArray.join(" and "); // Array 2
+        let poppedItem = strArray.pop(); // Array 3
+        document.getElementById("arrayId4").innerHTML = poppedItem;
+
+        let numArray = [1, 2, 3, 4];
+        document.getElementById("arrayId5").innerHTML = numArray;
+
+        numArray.push(5); // Array 4
+        document.getElementById("arrayId6").innerHTML = numArray;
+        numArray.shift(); // Array 5
+        document.getElementById("arrayId7").innerHTML = numArray;
+
+        const dateNow = new Date();
+        document.getElementById("dateId1").innerHTML = dateNow;
+
+        document.getElementById("dateId2").innerHTML = dateNow.getDate(); // Date 1
+        document.getElementById("dateId3").innerHTML = dateNow.getHours(); // Date 2
+        document.getElementById("dateId4").innerHTML = dateNow.getMinutes(); // Date 3
+        document.getElementById("dateId5").innerHTML = dateNow.getTime(); // Date 4
+        document.getElementById("dateId6").innerHTML = dateNow.getDay(); // Date 5
+
+        const button = document.querySelector("button");
+        button.onclick = () =>
+        {
+            alert("The button has been pressed!");
+            name = promptName();
+            upperCaseName(name);
+        }
+
+        function promptName() // Function 1
+        {
+            const name = prompt("Name:");
+            const nameLength = name.length; // String 2
+            heading2.innerHTML = name;
+            heading2.textContent = `The length (amount of characters) of "${name}" is ` + nameLength;
+            return name;
+        }
+
+        function upperCaseName(name) // Function 2
+        {
+            let nameUpper = name.toUpperCase(); // String 3
+            heading3.innerHTML = nameUpper;
+            heading3.textContent = `And here's the name in all caps: ${nameUpper}`;
+        }
+    </script>
+</body>
+</html>
